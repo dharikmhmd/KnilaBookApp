@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KnilaTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblBook">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuthorLastName" Type="nvarchar" MaxLength="20" />
+          <Property Name="AuthorFirstName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="Title" Type="nvarchar" MaxLength="30" />
+          <Property Name="Price" Type="decimal" Precision="15" Scale="3" />
+          <Property Name="TitleofContainer" Type="nvarchar" MaxLength="60" />
+          <Property Name="PublicationDate" Type="datetime" />
+          <Property Name="PageNo" Type="int" />
+          <Property Name="JournalTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="Issueno" Type="nvarchar" MaxLength="200" />
+          <Property Name="VolumeNo" Type="nvarchar" MaxLength="200" />
+          <Property Name="PageRange" Type="nvarchar" MaxLength="200" />
+          <Property Name="PageURL" Type="nvarchar" MaxLength="200" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+        </EntityType>
+        <Function Name="PriceofAllbooks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SortByLAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SortByPLAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="splocal_Book_IUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransTypeID" Type="int" Mode="In" />
+          <Parameter Name="Res" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="KnilaTestModelStoreContainer">
+          <EntitySet Name="tblBook" EntityType="Self.tblBook" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KnilaTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblBook">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorLastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorFirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="15" Scale="3" />
+          <Property Name="TitleofContainer" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PublicationDate" Type="DateTime" Precision="3" />
+          <Property Name="PageNo" Type="Int32" />
+          <Property Name="JournalTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Issueno" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="VolumeNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PageRange" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="KnilaTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblBook" EntityType="Self.tblBook" />
+          <FunctionImport Name="PriceofAllbooks" ReturnType="Collection(Decimal)" />
+          <FunctionImport Name="SortByLAT" ReturnType="Collection(KnilaTestModel.SortByLAT_Result)" />
+          <FunctionImport Name="SortByPLAT" ReturnType="Collection(KnilaTestModel.SortByPLAT_Result)" />
+          <FunctionImport Name="splocal_Book_IUD">
+            <Parameter Name="TransTypeID" Mode="In" Type="Int32" />
+            <Parameter Name="Res" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SortByLAT_Result">
+          <Property Type="Int32" Name="BookID" Nullable="false" />
+          <Property Type="String" Name="AuthorLastName" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AuthorFirstName" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Publisher" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="15" Scale="3" />
+          <Property Type="String" Name="TitleofContainer" Nullable="true" MaxLength="60" />
+          <Property Type="DateTime" Name="PublicationDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="PageNo" Nullable="true" />
+          <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Issueno" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="VolumeNo" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PageRange" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PageURL" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="isActive" Nullable="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="UpdatedAt" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SortByPLAT_Result">
+          <Property Type="Int32" Name="BookID" Nullable="false" />
+          <Property Type="String" Name="AuthorLastName" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AuthorFirstName" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Publisher" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="15" Scale="3" />
+          <Property Type="String" Name="TitleofContainer" Nullable="true" MaxLength="60" />
+          <Property Type="DateTime" Name="PublicationDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="PageNo" Nullable="true" />
+          <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Issueno" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="VolumeNo" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PageRange" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PageURL" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="isActive" Nullable="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="UpdatedAt" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KnilaTestModelStoreContainer" CdmEntityContainer="KnilaTestEntities">
+          <EntitySetMapping Name="tblBook">
+            <EntityTypeMapping TypeName="KnilaTestModel.tblBook">
+              <MappingFragment StoreEntitySet="tblBook">
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="AuthorLastName" ColumnName="AuthorLastName" />
+                <ScalarProperty Name="AuthorFirstName" ColumnName="AuthorFirstName" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TitleofContainer" ColumnName="TitleofContainer" />
+                <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
+                <ScalarProperty Name="PageNo" ColumnName="PageNo" />
+                <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+                <ScalarProperty Name="Issueno" ColumnName="Issueno" />
+                <ScalarProperty Name="VolumeNo" ColumnName="VolumeNo" />
+                <ScalarProperty Name="PageRange" ColumnName="PageRange" />
+                <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PriceofAllbooks" FunctionName="KnilaTestModel.Store.PriceofAllbooks" />
+          <FunctionImportMapping FunctionImportName="SortByLAT" FunctionName="KnilaTestModel.Store.SortByLAT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KnilaTestModel.SortByLAT_Result">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="AuthorLastName" ColumnName="AuthorLastName" />
+                <ScalarProperty Name="AuthorFirstName" ColumnName="AuthorFirstName" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TitleofContainer" ColumnName="TitleofContainer" />
+                <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
+                <ScalarProperty Name="PageNo" ColumnName="PageNo" />
+                <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+                <ScalarProperty Name="Issueno" ColumnName="Issueno" />
+                <ScalarProperty Name="VolumeNo" ColumnName="VolumeNo" />
+                <ScalarProperty Name="PageRange" ColumnName="PageRange" />
+                <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SortByPLAT" FunctionName="KnilaTestModel.Store.SortByPLAT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KnilaTestModel.SortByPLAT_Result">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="AuthorLastName" ColumnName="AuthorLastName" />
+                <ScalarProperty Name="AuthorFirstName" ColumnName="AuthorFirstName" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TitleofContainer" ColumnName="TitleofContainer" />
+                <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
+                <ScalarProperty Name="PageNo" ColumnName="PageNo" />
+                <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+                <ScalarProperty Name="Issueno" ColumnName="Issueno" />
+                <ScalarProperty Name="VolumeNo" ColumnName="VolumeNo" />
+                <ScalarProperty Name="PageRange" ColumnName="PageRange" />
+                <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="splocal_Book_IUD" FunctionName="KnilaTestModel.Store.splocal_Book_IUD" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

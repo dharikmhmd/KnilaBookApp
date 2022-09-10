@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KnilaTestModelStoreContainer" CdmEntityContainer="KnilaTestEntities">
+    <EntitySetMapping Name="tblBook">
+      <EntityTypeMapping TypeName="KnilaTestModel.tblBook">
+        <MappingFragment StoreEntitySet="tblBook">
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="AuthorLastName" ColumnName="AuthorLastName" />
+          <ScalarProperty Name="AuthorFirstName" ColumnName="AuthorFirstName" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TitleofContainer" ColumnName="TitleofContainer" />
+          <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
+          <ScalarProperty Name="PageNo" ColumnName="PageNo" />
+          <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+          <ScalarProperty Name="Issueno" ColumnName="Issueno" />
+          <ScalarProperty Name="VolumeNo" ColumnName="VolumeNo" />
+          <ScalarProperty Name="PageRange" ColumnName="PageRange" />
+          <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PriceofAllbooks" FunctionName="KnilaTestModel.Store.PriceofAllbooks" />
+    <FunctionImportMapping FunctionImportName="SortByLAT" FunctionName="KnilaTestModel.Store.SortByLAT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="KnilaTestModel.SortByLAT_Result">
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="AuthorLastName" ColumnName="AuthorLastName" />
+          <ScalarProperty Name="AuthorFirstName" ColumnName="AuthorFirstName" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TitleofContainer" ColumnName="TitleofContainer" />
+          <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
+          <ScalarProperty Name="PageNo" ColumnName="PageNo" />
+          <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+          <ScalarProperty Name="Issueno" ColumnName="Issueno" />
+          <ScalarProperty Name="VolumeNo" ColumnName="VolumeNo" />
+          <ScalarProperty Name="PageRange" ColumnName="PageRange" />
+          <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SortByPLAT" FunctionName="KnilaTestModel.Store.SortByPLAT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="KnilaTestModel.SortByPLAT_Result">
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="AuthorLastName" ColumnName="AuthorLastName" />
+          <ScalarProperty Name="AuthorFirstName" ColumnName="AuthorFirstName" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TitleofContainer" ColumnName="TitleofContainer" />
+          <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
+          <ScalarProperty Name="PageNo" ColumnName="PageNo" />
+          <ScalarProperty Name="JournalTitle" ColumnName="JournalTitle" />
+          <ScalarProperty Name="Issueno" ColumnName="Issueno" />
+          <ScalarProperty Name="VolumeNo" ColumnName="VolumeNo" />
+          <ScalarProperty Name="PageRange" ColumnName="PageRange" />
+          <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="splocal_Book_IUD" FunctionName="KnilaTestModel.Store.splocal_Book_IUD" />
+  </EntityContainerMapping>
+</Mapping>

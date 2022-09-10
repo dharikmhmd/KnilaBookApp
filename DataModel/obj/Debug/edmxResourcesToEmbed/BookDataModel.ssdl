@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KnilaTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblBook">
+    <Key>
+      <PropertyRef Name="BookID" />
+    </Key>
+    <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorLastName" Type="nvarchar" MaxLength="20" />
+    <Property Name="AuthorFirstName" Type="nvarchar" MaxLength="20" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="Title" Type="nvarchar" MaxLength="30" />
+    <Property Name="Price" Type="decimal" Precision="15" Scale="3" />
+    <Property Name="TitleofContainer" Type="nvarchar" MaxLength="60" />
+    <Property Name="PublicationDate" Type="datetime" />
+    <Property Name="PageNo" Type="int" />
+    <Property Name="JournalTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="Issueno" Type="nvarchar" MaxLength="200" />
+    <Property Name="VolumeNo" Type="nvarchar" MaxLength="200" />
+    <Property Name="PageRange" Type="nvarchar" MaxLength="200" />
+    <Property Name="PageURL" Type="nvarchar" MaxLength="200" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <Function Name="PriceofAllbooks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SortByLAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SortByPLAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="splocal_Book_IUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TransTypeID" Type="int" Mode="In" />
+    <Parameter Name="Res" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="KnilaTestModelStoreContainer">
+    <EntitySet Name="tblBook" EntityType="Self.tblBook" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

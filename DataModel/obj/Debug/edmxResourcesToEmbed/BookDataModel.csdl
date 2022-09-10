@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KnilaTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblBook">
+    <Key>
+      <PropertyRef Name="BookID" />
+    </Key>
+    <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AuthorLastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorFirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="15" Scale="3" />
+    <Property Name="TitleofContainer" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="PublicationDate" Type="DateTime" Precision="3" />
+    <Property Name="PageNo" Type="Int32" />
+    <Property Name="JournalTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Issueno" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="VolumeNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PageRange" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="KnilaTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblBook" EntityType="Self.tblBook" />
+    <FunctionImport Name="PriceofAllbooks" ReturnType="Collection(Decimal)" />
+    <FunctionImport Name="SortByLAT" ReturnType="Collection(KnilaTestModel.SortByLAT_Result)" />
+    <FunctionImport Name="SortByPLAT" ReturnType="Collection(KnilaTestModel.SortByPLAT_Result)" />
+    <FunctionImport Name="splocal_Book_IUD">
+      <Parameter Name="TransTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="Res" Mode="InOut" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SortByLAT_Result">
+    <Property Type="Int32" Name="BookID" Nullable="false" />
+    <Property Type="String" Name="AuthorLastName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="AuthorFirstName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Publisher" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="15" Scale="3" />
+    <Property Type="String" Name="TitleofContainer" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="PublicationDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="PageNo" Nullable="true" />
+    <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Issueno" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="VolumeNo" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PageRange" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PageURL" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="isActive" Nullable="true" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedAt" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SortByPLAT_Result">
+    <Property Type="Int32" Name="BookID" Nullable="false" />
+    <Property Type="String" Name="AuthorLastName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="AuthorFirstName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Publisher" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="15" Scale="3" />
+    <Property Type="String" Name="TitleofContainer" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="PublicationDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="PageNo" Nullable="true" />
+    <Property Type="String" Name="JournalTitle" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Issueno" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="VolumeNo" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PageRange" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PageURL" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="isActive" Nullable="true" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedAt" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>
